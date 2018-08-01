@@ -62,3 +62,4 @@ end
 
 gem 'devise', '~>4.4.1'
 gem 'active_model_serializers', '~> 0.9.7'
+gem 'bootstrap'
