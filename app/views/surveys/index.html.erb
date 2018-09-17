@@ -1,0 +1,50 @@
+<% if @versions && @versions.length > 0 %>
+  <div class="row">
+    <div class="col">
+      <label>Form Version</label>
+      <%= select_tag 'version', options_from_collection_for_select(@versions, "form_version", "for_select_options", @version), class: 'form-control selected-version' %>
+      <%= link_to "Download CSV", root_path(version: @version, format: 'csv', page: params[:page]), class: 'btn btn-secondary' %>
+    </div>
+  </div>
+  <br/>
+<% end %>
+  <% if @survey_values && @survey_values.length > 0 %>
+
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">UUID</th>
+          <% @survey_values[0].each do |key, value| %>
+            <th><%= key %></th>
+          <% end %>
+          <th scope="col">Start entried at</th>
+          <th scope="col">End entried at</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @survey.each_with_index do |data, index| %>
+        <tr>
+          <td><%=  data.uuid %></td>
+          <% @survey_values[index].each do |key, value| %>
+            <td><%= value %></td>
+          <% end %>
+          <td><%=  data.start_entried_at %></td>
+          <td><%=  data.end_entried_at %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="row justify-content-end">
+    <%= paginate @survey %>
+  </div>
+<% else %>
+  <p>No data</p>
+<% end %>
+
+<script>
+  $( "#version" ).change(function() {
+    window.location.href = "/?version="+this.value;
+  });
+</script>

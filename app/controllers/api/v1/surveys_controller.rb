@@ -1,10 +1,6 @@
 module Api::V1
   class SurveysController < ApiController
 
-    def index
-      render json: Survey.all
-    end
-
     def create
       response=[]
       params[:survey].each do |i,data|

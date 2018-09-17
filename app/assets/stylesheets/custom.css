@@ -2,3 +2,72 @@
   padding-left: 15px;
   padding-top: 20px;
 }
+
+.devise-form{
+  margin: 100px auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.new_user{
+  margin-top: 20px;
+}
+
+.brand{
+  text-decoration: none !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.navbar{
+  color: white;
+}
+
+.selected-version{
+    width: 400px !important;
+    display: inline !important;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.pagination a, .pagination span.current, .pagination span.gap {
+    float: left;
+    padding: 0 14px;
+    line-height: 38px;
+    text-decoration: none;
+    background-color: white;
+    border: 1px solid #DDD;
+    border-left-width: 0;
+}
+
+.pagination {
+    border-left: 1px solid #ddd;
+    .first{
+        padding : 0;
+        float: none;
+        border: none;
+    }
+    .prev {
+        padding : 0;
+        float: none;
+        border: none;
+    }
+    .page{
+        padding : 0;
+        float: none;
+        border: none;
+    }
+    .next{
+        padding : 0;
+        float: none;
+        border: none;
+    }
+    .last{
+        padding : 0;
+        float: none;
+        border: none;
+    }
+}
+
+.pagination-wrapper{
+  text-align: right
+}

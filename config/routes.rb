@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  root 'surveys#index'
   namespace :api do
     namespace :v1 do
-      resources :surveys
+      resource :surveys
+      resource :versions
     end
   end
 
