@@ -71,3 +71,25 @@
 .pagination-wrapper{
   text-align: right
 }
+
+.table {
+    border: none;
+    border-right: solid 1px #DDEFEF;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table-wrapper {
+    position: relative;
+}
+.table-scroller {
+    margin-left: 120px;
+    overflow-x: scroll;
+    overflow-y: visible;
+}
+.table .table-sticky-col {
+    left: 0;
+    position: absolute;
+    top: auto;
+    width: 120px;
+}

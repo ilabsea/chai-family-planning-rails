@@ -10,32 +10,34 @@
 <% end %>
   <% if @survey_values && @survey_values.length > 0 %>
 
-  <div class="row">
-    <table class="table">
+  <div class="table-wrapper">
+      <div class="table-scroller">
+      <table class="table" style="width:100%">
       <thead>
         <tr>
-          <th scope="col">UUID</th>
+          <th class="table-sticky-col" scope="col">UUID</th>
           <% @survey_values[0].each do |key, value| %>
             <th><%= key %></th>
           <% end %>
-          <th scope="col">Start entried at</th>
-          <th scope="col">End entried at</th>
+          <th style="white-space: nowrap;">Start entried at</th>
+          <th style="white-space: nowrap;">End entried at</th>
         </tr>
       </thead>
       <tbody>
         <% @survey.each_with_index do |data, index| %>
         <tr>
-          <td><%=  data.uuid %></td>
+          <td class="table-sticky-col"><%=  data.uuid %></td>
           <% @survey_values[index].each do |key, value| %>
             <td><%= value %></td>
           <% end %>
-          <td><%=  data.start_entried_at %></td>
-          <td><%=  data.end_entried_at %></td>
+          <td><%=  data.start_entried_at.strftime '%Y-%m-%d %H:%M:%S' %></td>
+          <td><%=  data.end_entried_at.strftime '%Y-%m-%d %H:%M:%S' %></td>
         </tr>
         <% end %>
       </tbody>
     </table>
   </div>
+</div>
   <div class="row justify-content-end">
     <%= paginate @survey %>
   </div>
