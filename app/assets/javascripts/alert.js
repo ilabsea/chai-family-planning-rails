@@ -1,5 +1,5 @@
 $(function() {
-  $(".alert" ).fadeOut(2000);
-  $(".alert-success" ).fadeOut(2000);
-  $(".alert-danger" ).fadeOut(2000);
+  $(".alert" ).fadeOut(5000);
+  $(".alert-success" ).fadeOut(5000);
+  $(".alert-danger" ).fadeOut(5000);
 });
