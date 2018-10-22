@@ -8,7 +8,7 @@
   </div>
   <br/>
 <% end %>
-  <% if @survey_values && @survey_values.length > 0 %>
+  <% if @survey %>
 
   <div class="table-wrapper">
       <div class="table-scroller">
@@ -16,22 +16,31 @@
       <thead>
         <tr>
           <th class="table-sticky-col" scope="col">UUID</th>
-          <% @survey_values[0].each do |key, value| %>
-            <th><%= key %></th>
+          <% @headers.each do |header| %>
+            <th><%= header %></th>
           <% end %>
           <th style="white-space: nowrap;">Start entried at</th>
           <th style="white-space: nowrap;">End entried at</th>
         </tr>
       </thead>
       <tbody>
-        <% @survey.each_with_index do |data, index| %>
-        <tr>
-          <td class="table-sticky-col"><%=  data.uuid %></td>
-          <% @survey_values[index].each do |key, value| %>
-            <td><%= value %></td>
-          <% end %>
-          <td><%=  data.start_entried_at.strftime '%Y-%m-%d %H:%M:%S' %></td>
-          <td><%=  data.end_entried_at.strftime '%Y-%m-%d %H:%M:%S' %></td>
+        <% @survey.each do |data| %>
+          <tr>
+            <td class="table-sticky-col"><%=  data.uuid %></td>
+            <% @headers.each do |header| %>
+              <td>
+
+                <% if(data.json_value["#{header}"].kind_of?(Array))
+                    value = data.json_value["#{header}"].join(",")
+                  else
+                    value = data.json_value["#{header}"]
+                  end
+                %>
+                <%= value%>
+              </td>
+            <% end %>
+            <td><%=  data.start_entried_at.strftime '%Y-%m-%d %H:%M:%S' %></td>
+            <td><%=  data.end_entried_at.strftime '%Y-%m-%d %H:%M:%S' %></td>
         </tr>
         <% end %>
       </tbody>
