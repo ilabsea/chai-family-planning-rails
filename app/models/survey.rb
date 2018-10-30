@@ -1,4 +1,7 @@
+require 'csv'
+
 class Survey < ApplicationRecord
+
   def fields
     data = self.map{|value| JSON.parse(value) }
     return data.map{|x| x.keys}.flatten.uniq
