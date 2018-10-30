@@ -5,7 +5,7 @@ class ApiController < ApplicationController
 
   def http_basic_authenticate
     authenticate_or_request_with_http_basic do |username, password|
-      username == Credential.http_basic_user && password == Credential.http_basic_password
+      username == ENV['HTTP_BASIC_USER'] && password == ENV['HTTP_BASIC_PASSWORD']
     end
   end
 

@@ -4,9 +4,9 @@
 # You can define all roles on a single server, or split them:
 
 deploy_user = 'ilab'
-server_address = '110.74.204.121'
+server_address = ''
 
-server "#{server_address}", user: "#{deploy_user}", roles: %w{app db web}, port: 20202
+server "#{server_address}", user: "#{deploy_user}", roles: %w{app db web}
 
 
 

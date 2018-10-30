@@ -1,0 +1,7 @@
+default: &default
+  HTTP_BASIC_USER: ''
+  HTTP_BASIC_PASSWORD: ''
+  HOST: 'localhost'
+
+development:
+  <<: *default

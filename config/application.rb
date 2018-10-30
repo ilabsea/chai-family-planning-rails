@@ -6,7 +6,14 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+ENV.update YAML.load_file('config/application.yml')[Rails.env] rescue {}
+
 module ChaiFamilyPlanning
+
+  def self.config
+    Rails.application.config_for(:application)
+  end
+
   class Application < Rails::Application
 
     config.autoload_paths << Rails.root.join('lib')
@@ -27,4 +34,6 @@ module ChaiFamilyPlanning
     end
 
   end
+
+
 end
