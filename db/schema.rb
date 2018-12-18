@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180925034103) do
+ActiveRecord::Schema.define(version: 20181218101305) do
+
+  create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "uuid"
+    t.string "name"
+    t.text "label"
+    t.string "kind"
+    t.integer "order"
+    t.boolean "required", default: false
+    t.bigint "version_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["version_id"], name: "index_questions_on_version_id"
+  end
 
   create_table "surveys", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "value"
@@ -48,4 +61,5 @@ ActiveRecord::Schema.define(version: 20180925034103) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "questions", "versions"
 end
