@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col">
       <label>Form Version</label>
-      <%= select_tag 'version', options_from_collection_for_select(@versions, "form_version", "for_select_options", @version), class: 'form-control selected-version' %>
-      <%= link_to "Download CSV", root_path(version: @version, format: 'csv', page: params[:page]), class: 'btn btn-secondary' %>
+      <%= select_tag 'version', options_from_collection_for_select(@versions, "form_version", "for_select_options", @fully_form_version), class: 'form-control selected-version' %>
+      <%= link_to "Download CSV", root_path(version: @fully_form_version, format: 'csv', page: params[:page]), class: 'btn btn-secondary' %>
     </div>
   </div>
   <br/>
