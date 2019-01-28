@@ -8,14 +8,14 @@
   </div>
   <br/>
 <% end %>
-  <% if @survey %>
+  <% if @surveys %>
 
   <div class="table-wrapper">
       <div class="table-scroller">
       <table class="table" style="width:100%">
       <thead>
         <tr>
-          <th class="table-sticky-col" scope="col">UUID</th>
+          <th class="table-sticky-col" >UUID</th>
           <% @headers.each do |header| %>
             <th><%= header %></th>
           <% end %>
@@ -24,7 +24,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @survey.each do |data| %>
+        <% @surveys.each do |data| %>
           <tr>
             <td class="table-sticky-col"><%=  data.uuid %></td>
             <% @headers.each do |header| %>
@@ -48,7 +48,7 @@
   </div>
 </div>
   <div class="row justify-content-end">
-    <%= paginate @survey %>
+    <%= paginate @surveys %>
   </div>
 <% else %>
   <p>No data</p>

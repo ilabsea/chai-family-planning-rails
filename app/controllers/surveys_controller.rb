@@ -4,7 +4,7 @@ class SurveysController < ApplicationController
     @versions = Version.order('id desc')
     if @versions.length > 0
       @fully_form_version = params[:version].present? ? params[:version] : @versions.first.form_version
-      @survey = Survey.where(version: @fully_form_version).page(params[:page])
+      @surveys = Survey.where(version: @fully_form_version).order(start_entried_at: :desc).page(params[:page])
       @version_id = Version.from_fully_form_version(@fully_form_version).id
       @headers = Question.where(version_id: @version_id).order(:order).pluck(:name)
     end
