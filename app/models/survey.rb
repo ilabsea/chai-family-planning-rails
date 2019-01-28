@@ -23,7 +23,7 @@ class Survey < ApplicationRecord
     row_headers = ["uuid"].concat(self.headers).concat(["start_entried_at", "end_entried_at"])
     CSV.generate(headers: true) do |csv|
       csv << row_headers
-      Survey.where(version: version).each do |data|
+      Survey.where(version: version).order(start_entried_at: :desc).each do |data|
         row = [data.uuid]
         self.headers.each do |header|
           if(data.json_value["#{header}"].kind_of?(Array))
